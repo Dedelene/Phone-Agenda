@@ -10,15 +10,24 @@
 
     <div id="app-wrapper">
         <div id="insert">
-                <input type="text" id="firstname" placeholder="First Name">
-                <input type="text" id="lastname" placeholder="Last Name">
-                <input type="text" id="telephone" placeholder="Telephone Number">
-                <button id="btn">Add contact</button> 
+            <div class="input">
+                <label for="firstname">First name</label>
+                <input type="text" id="firstname">
             </div>
+            <div class="input">
+                <label for="lastname">Last name</label>
+                <input type="text" id="lastname">
+            </div>
+            <div class="input">
+                <label for="telephone">Phone number</label>
+                <input type="text" id="telephone">
+            </div>
+            <button id="btn">Add contact</button> 
+        </div>
 
-            <table id="table"></table>
+        <table id="table"></table>
 
-            <script src="script.js"></script>
+        <script src="script.js"></script>
     </div>
     
 </body>

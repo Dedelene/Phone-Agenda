@@ -4,8 +4,38 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: rgb(218, 247, 246);
+    position: relative;
+}
+
 #app-wrapper {
     position: relative;
-    margin: 10px;
+    margin: 50px;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
 }
+
+#insert {
+    position: relative;
+}
+
+.input input {
+    background-color: rgb(218, 247, 246);
+}
+
+#btn {
+    background-color: rgb(218, 247, 246);
+}
+
+#table {
+    position: relative;
+}
+table thead {
+    position: absolute;
+}
+
+
+
 

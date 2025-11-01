@@ -1,7 +1,9 @@
 const btn = document.getElementById("btn");
 const tabel = document.getElementById("table");
 
-btn.addEventListener("click", () => {
+btn.addEventListener("click", (e) => {
+
+    e.preventDefault();
 
     const fname = document.getElementById("firstname");
     const lname = document.getElementById("lastname");
