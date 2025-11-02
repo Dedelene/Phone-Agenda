@@ -17,6 +17,7 @@ const btn = document.getElementById("add");
 const btnDel = document.getElementById("del");
 const tabel = document.getElementById("table");
 const count = document.getElementById("counter");
+const stecher = document.getElementById("switch");
 
 btn.addEventListener("click", () => {
 
@@ -30,20 +31,8 @@ btn.addEventListener("click", () => {
 
     let person = new Person(fname.value, lname.value, tel.value);
     persons.push(person);
+    
     counter.innerText = `Contacts: ${Person.count}`;
-
-    if(tabel.rows.length === 0) {
-        const thead = document.createElement("thead");
-        thead.innerHTML = `
-            <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Phone number</th>
-            </tr>
-        `;
-        tabel.appendChild(thead);
-        
-    }
 
     const tr = document.createElement("tr");
 
@@ -53,20 +42,14 @@ btn.addEventListener("click", () => {
     fname.value = "";
     lname.value = "";
     tel.value = "";
+
+    if(persons.length !== 0) {
+        document.querySelector(".table-wrapper").classList.add('seen');
+    }
 })
 
 function checkError(fname, lname, tel) {
     let checkError = false;
-    if(!lname){
-        const wrapper = document.getElementById('lastname').closest('.input');
-        wrapper.classList.add('shake');
-        document.getElementById('lastname').placeholder="Enter last name!";
-
-        setTimeout(() => {
-            wrapper.classList.remove('shake');
-        }, 300);
-        checkError = true;
-    }
     if(!fname){
         const wrapper = document.getElementById('firstname').closest('.input');
         wrapper.classList.add('shake');
@@ -77,6 +60,17 @@ function checkError(fname, lname, tel) {
         }, 300);
         checkError = true;
     }
+    if(!lname){
+        const wrapper = document.getElementById('lastname').closest('.input');
+        wrapper.classList.add('shake');
+        document.getElementById('lastname').placeholder="Enter last name!";
+
+        setTimeout(() => {
+            wrapper.classList.remove('shake');
+        }, 300);
+        checkError = true;
+    }
+    
     if(!tel){
         const wrapper = document.getElementById('telephone').closest('.input');
         wrapper.classList.add('shake');
@@ -109,20 +103,11 @@ btnDel.addEventListener("click", () => {
     }else{
         return;
     }
-    tabel.innerHTML = "";
-    if(persons.length !== 0) {
-        const thead = document.createElement("thead");
-        thead.innerHTML = `
-            <tr>
+    tabel.innerHTML = `<tr>
                 <th>First name</th>
                 <th>Last name</th>
                 <th>Phone number</th>
-            </tr>
-        `;
-        tabel.appendChild(thead);
-        
-    }
-    
+            </tr>`;
     counter.innerText = `Contacts: ${Person.count}`;
 
     persons.forEach(person => {
@@ -134,20 +119,13 @@ btnDel.addEventListener("click", () => {
     fname.value = "";
     lname.value = "";
     tel.value = "";
+
+    if(persons.length === 0) {
+        document.querySelector(".table-wrapper").classList.remove('seen');
+    }
 });
 
 function checkDelError(fname, lname, tel) {
-    if(!lname || !personArray.some(p => p.lname === lname)){
-        const wrapper = document.getElementById('lastname').closest('.input');
-        wrapper.classList.add('shake');
-        document.getElementById('lastname').value="";
-        document.getElementById('lastname').placeholder="Try again!";
-
-        setTimeout(() => {
-            wrapper.classList.remove('shake');
-        }, 300);
-        checkError = true;
-    }
     if(!fname || !personArray.some(p => p.fname === fname)){
         const wrapper = document.getElementById('firstname').closest('.input');
         wrapper.classList.add('shake');
@@ -159,6 +137,18 @@ function checkDelError(fname, lname, tel) {
         }, 300);
         checkError = true;
     }
+    if(!lname || !personArray.some(p => p.lname === lname)){
+        const wrapper = document.getElementById('lastname').closest('.input');
+        wrapper.classList.add('shake');
+        document.getElementById('lastname').value="";
+        document.getElementById('lastname').placeholder="Try again!";
+
+        setTimeout(() => {
+            wrapper.classList.remove('shake');
+        }, 300);
+        checkError = true;
+    }
+    
     if(!tel || !personArray.some(p => p.tel === tel)){
         const wrapper = document.getElementById('telephone').closest('.input');
         wrapper.classList.add('shake');
@@ -173,3 +163,7 @@ function checkDelError(fname, lname, tel) {
 
     return checkError;
 }
+
+stecher.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+});

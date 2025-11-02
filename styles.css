@@ -4,11 +4,24 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color: blueviolet;
+    --fundal: rgb(218, 247, 246);
+    --umbre: 10px 10px 10px rgba(165, 165, 221, 1);
+}
+
+.dark-theme {
+    --color: rgb(218, 247, 246);
+    --fundal: blueviolet;
+    --umbre: 10px 10px 10px rgba(165, 165, 221, 1);
+}
+
 body {
-    background-color: rgb(218, 247, 246);
+    background-color: var(--fundal);
     font-family:Varela Round, sans-serif;
     display: flex;
     position: relative;
+    transition: 300ms;
     justify-content: center;
 }
 
@@ -21,9 +34,39 @@ body {
     width: 100vw;
 }
 
+#switch {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    left: 20px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--fundal);
+    transition: 300ms;
+    cursor: pointer;
+    transition: 300ms;
+    overflow: hidden;
+}
+
+#switch > img {
+    width: 80%;
+    height: 80%;
+    
+}
+
+#switch:hover{
+    transform: scale(1.2);
+}
+
 #title {
     margin-bottom: 50px;
-    color: blueviolet;
+    color: var(--color);
+    transition: 300ms;
     font-size: 3rem;
 }
 
@@ -48,24 +91,26 @@ body {
     font-family:Varela Round, sans-serif;
     font-size: 1rem;
     text-align: center;
-    background-color: rgb(218, 247, 246);
+    background-color: var(--fundal);
+    transition: 300ms;
     position: relative;
     height: 50px;
     outline: none;
-    caret-color: blueviolet;
+    caret-color: var(--color);
     width: 250px;
-    box-shadow:10px 10px 10px rgba(165, 165, 221, 1);
-    border: 2px solid blueviolet;
+    box-shadow: var(--umbre);
+    border: 2px solid var(--color);
     border-radius: 5px;
-    color: blueviolet;
+    color: var(--color);
 }
 
 label {
     position: absolute;
     z-index: 1;
     top: -10px;
-    color: blueviolet;
-    background-color: rgb(218, 247, 246);
+    color: var(--color);
+    background-color: var(--fundal);
+    transition: 300ms;
     padding: 0px 5px;
     left: 20px;
     font-size: 0.9rem;
@@ -74,15 +119,15 @@ label {
 .btn {
     position: relative;
     font-size: 1rem;
-    background-color: rgb(218, 247, 246);
+    background-color: var(--fundal);
     font-family:Varela Round, sans-serif;
     top: 10px;
     height: 50px;
     width: 110px;
-    border: 2px solid blueviolet;
+    border: 2px solid var(--color);
     border-radius: 5px;
-    color: blueviolet;
-    box-shadow: 10px 10px 10px rgba(165, 165, 221, 1);
+    color: var(--color);
+    box-shadow: var(--fundal);
     transition: 300ms;
 }
 
@@ -100,11 +145,12 @@ label {
 
 table {
     position: relative;
-    border: 2px solid blueviolet;
+    border: 2px solid var(--color);
     border-radius: 5px;
-    box-shadow: 10px 10px 10px rgba(165, 165, 221, 1);
+    box-shadow: var(--umbre);
     width: 700px;
-    color: blueviolet;
+    color: var(--color);
+    transition: 300ms;
 }
 
 td, th {
@@ -120,8 +166,10 @@ td, th {
 .table-wrapper {
     display: flex;
     flex-direction: column;
+    opacity: 0;
     align-items: left;
-    color: blueviolet;
+    color: var(--color);
+    transition: 300ms;
 }
 
 @keyframes shake {
@@ -137,4 +185,8 @@ td, th {
 
 input::placeholder {
     color: rgb(201, 169, 231);
+}
+
+.seen {
+    opacity: 1;
 }
