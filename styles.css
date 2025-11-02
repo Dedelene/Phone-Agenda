@@ -6,36 +6,135 @@
 
 body {
     background-color: rgb(218, 247, 246);
+    font-family:Varela Round, sans-serif;
+    display: flex;
     position: relative;
+    justify-content: center;
 }
 
 #app-wrapper {
     position: relative;
-    margin: 50px;
-    height: 50vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    width: 100vw;
+}
+
+#title {
+    margin-bottom: 50px;
+    color: blueviolet;
+    font-size: 3rem;
 }
 
 #insert {
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    gap: 50px;
+    
 }
 
-.input input {
-    background-color: rgb(218, 247, 246);
-}
-
-#btn {
-    background-color: rgb(218, 247, 246);
-}
-
-#table {
+.input{
+    width: 250px;
     position: relative;
 }
-table thead {
-    position: absolute;
+.input input {
+    font-family:Varela Round, sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    background-color: rgb(218, 247, 246);
+    position: relative;
+    height: 50px;
+    outline: none;
+    caret-color: blueviolet;
+    width: 250px;
+    box-shadow:10px 10px 10px rgba(165, 165, 221, 1);
+    border: 2px solid blueviolet;
+    border-radius: 5px;
+    color: blueviolet;
 }
 
+label {
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    color: blueviolet;
+    background-color: rgb(218, 247, 246);
+    padding: 0px 5px;
+    left: 20px;
+    font-size: 0.9rem;
+}
 
+.btn {
+    position: relative;
+    font-size: 1rem;
+    background-color: rgb(218, 247, 246);
+    font-family:Varela Round, sans-serif;
+    top: 10px;
+    height: 50px;
+    width: 110px;
+    border: 2px solid blueviolet;
+    border-radius: 5px;
+    color: blueviolet;
+    box-shadow: 10px 10px 10px rgba(165, 165, 221, 1);
+    transition: 300ms;
+}
 
+.btn:hover {
+    transform: scale(1.1);
+}
 
+.buttons {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+table {
+    position: relative;
+    border: 2px solid blueviolet;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(165, 165, 221, 1);
+    width: 700px;
+    color: blueviolet;
+}
+
+td, th {
+    text-align: left;
+    position: relative;
+    left: 40px;
+}
+
+#counter{
+    margin-bottom: 10px;
+}
+
+.table-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    color: blueviolet;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-6px); }
+}
+
+.shake{
+    animation: shake 300ms ease;
+}
+
+input::placeholder {
+    color: rgb(201, 169, 231);
+}
