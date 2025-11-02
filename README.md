@@ -2,8 +2,8 @@
 O aplicație web simplă pentru gestionarea unei agende de contacte — realizată în HTML, CSS și JavaScript pur.
 Poți adăuga, șterge și vizualiza contacte, iar interfața suportă o temă deschisă și una întunecată.
 
-![Light mode]()
-![Dark mode]()
+![Light mode](./LightMode.png)
+![Dark mode](./DarkMode.png)
 
 🚀Funcționalități
 ➕ Adăugare contact (prenume, nume, telefon)
